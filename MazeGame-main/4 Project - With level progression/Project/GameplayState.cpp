@@ -43,6 +43,10 @@ GameplayState::GameplayState(StateMachineExampleGame* pOwner)
 
 GameplayState::~GameplayState()
 {
+	m_inputThread->join();
+	delete(m_inputThread);
+	m_inputThread = nullptr;
+	
 	delete m_pLevel;
 	m_pLevel = nullptr;
 }
